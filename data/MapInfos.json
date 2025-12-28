@@ -1,0 +1,19 @@
+[
+null,
+{"id":1,"expanded":true,"name":"Castle","order":1,"parentId":0,"scrollX":675.2727272727273,"scrollY":371.4545454545455},
+{"id":2,"expanded":true,"name":"KnightCamp","order":2,"parentId":0,"scrollX":675.2727272727273,"scrollY":380.1818181818182,"quick":false},
+{"id":3,"expanded":true,"name":"Wilderness","order":3,"parentId":0,"scrollX":1061.142857142857,"scrollY":597.4285714285714,"quick":false},
+{"id":4,"expanded":true,"name":"Nomad Camp","order":4,"parentId":0,"scrollX":816,"scrollY":624,"quick":false},
+{"id":5,"expanded":true,"name":"Normal Town","order":5,"parentId":0,"scrollX":838.909090909091,"scrollY":1533.2727272727273,"quick":false},
+{"id":6,"expanded":true,"name":"Market","order":7,"parentId":5,"scrollX":675.2727272727273,"scrollY":379.6363636363636,"quick":false},
+{"id":7,"expanded":true,"name":"Bar","order":8,"parentId":5,"scrollX":684,"scrollY":387.8181818181818,"quick":false},
+{"id":8,"expanded":true,"name":"Weapon Shop","order":9,"parentId":5,"scrollX":675.2727272727273,"scrollY":379.6363636363636,"quick":false},
+{"id":9,"expanded":true,"name":"CastleEnd","order":16,"parentId":0,"scrollX":675.2727272727273,"scrollY":380.1818181818182},
+{"id":10,"expanded":true,"name":"Item Shop","order":6,"parentId":5,"scrollX":684,"scrollY":436.3636363636364,"quick":false},
+{"id":11,"expanded":false,"name":"Lost Forest","order":12,"parentId":0,"scrollX":1650.5454545454545,"scrollY":1204.3636363636365,"quick":false},
+{"id":12,"expanded":true,"name":"Inn 1F","order":10,"parentId":5,"scrollX":675.2727272727273,"scrollY":590.7272727272727,"quick":false},
+{"id":13,"expanded":false,"name":"Inn 2F","order":11,"parentId":12,"scrollX":675.2727272727273,"scrollY":531.8181818181819,"quick":false},
+{"id":14,"expanded":false,"name":"Swamp","order":13,"parentId":0,"scrollX":1004.7272727272727,"scrollY":1058.7272727272727,"quick":false},
+{"id":15,"expanded":false,"name":"Oasis","order":14,"parentId":0,"scrollX":675.2727272727273,"scrollY":819.8181818181819,"quick":false},
+{"id":16,"expanded":false,"name":"Mining City","order":15,"parentId":0,"scrollX":684,"scrollY":744.5454545454546,"quick":false}
+]
