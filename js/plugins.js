@@ -12,6 +12,5 @@ var $plugins =
 {"name":"Jules_SoloHero","status":true,"description":"Mechanics designed for Single-Actor games: Stat Boosts, Guts, and Kill Sustain.","parameters":{"condition":"alive","--- Stats ---":"","atkBoost":"20","defBoost":"20","spdBoost":"10","--- Survival ---":"","enableGuts":"true","gutsAnimation":"0","--- Sustain ---":"","killHealHp":"10","killHealMp":"5"}},
 {"name":"EnemyScaling","status":true,"description":"Automatically scales Enemy Stats and Rewards based on the Player's Party Level.","parameters":{"General Settings":"","scalingMode":"average","enabledSwitch":"0","Stat Scaling Percentages":"","scaleHP":"10.0","scaleMP":"5.0","scaleATK":"5.0","scaleDEF":"5.0","scaleMAT":"5.0","scaleMDF":"5.0","scaleAGI":"3.0","scaleLUK":"1.0","Reward Scaling":"","scaleEXP":"10.0","scaleGold":"10.0"}},
 {"name":"WASDMovement","status":true,"description":"Enables WASD keys for player movement and menu navigation.","parameters":{"disableArrows":"false"}},
-{"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}},
-{"name":"AutoFullscreen","status":true,"description":"Automatically handles Fullscreen for PC and Landscape Mobile.","parameters":{"pcAutoStart":"true","mobileLandscape":"true"}}
+{"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}}
 ];
