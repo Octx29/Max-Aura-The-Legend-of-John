@@ -4,10 +4,6 @@ var $plugins =
 [
 {"name":"NpcNames","status":true,"description":"แสดงชื่อ NPC บนหัวตัวละครโดยอ่านจาก Note tag","parameters":{}},
 {"name":"EnemyHPGauge","status":true,"description":"แสดงหลอด HP สีแดงเหนือหัวศัตรูในฉากต่อสู้","parameters":{}},
-{"name":"Jules_AchievementSystem","status":true,"description":"Adds a robust Achievement System with visual popups and a dedicated menu scene.","parameters":{"achievements":"[]","popupDuration":"180","menuName":"Achievements","menuSwitch":"0","unlockSound":"{\"name\":\"Recovery\",\"volume\":\"90\",\"pitch\":\"100\",\"pan\":\"0\"}"}},
-{"name":"Jules_ChainCombos","status":true,"description":"Adds a Combo/Chain system to battles. High chains increase damage!","parameters":{"damageBonus":"5","maxChain":"99","breakRule":"reset","breakAmount":"10","showGauge":"true"}},
-{"name":"Jules_PlayerComfort","status":true,"description":"Improves player experience with Auto-Save, Battle Turbo, and Smooth Camera.","parameters":{"--- Auto Save ---":"","enableAutoSave":"true","autoSaveSlot":"1","--- Battle Turbo ---":"","enableTurbo":"true","turboSpeed":"2.5","--- Smooth Camera ---":"","enableSmoothCam":"true","camSpeed":"0.15"}},
-{"name":"Jules_SoloHero","status":true,"description":"Mechanics designed for Single-Actor games: Stat Boosts, Guts, and Kill Sustain.","parameters":{"condition":"alive","--- Stats ---":"","atkBoost":"20","defBoost":"60","spdBoost":"10","--- Survival ---":"","enableGuts":"true","gutsAnimation":"4","--- Sustain ---":"","killHealHp":"15","killHealMp":"5"}},
 {"name":"WASDMovement","status":true,"description":"Enables WASD keys for player movement and menu navigation.","parameters":{"disableArrows":"false"}},
 {"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}}
 ];
