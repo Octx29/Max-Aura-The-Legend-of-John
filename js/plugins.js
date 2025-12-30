@@ -9,6 +9,5 @@ var $plugins =
 {"name":"Jules_PlayerComfort","status":true,"description":"Improves player experience with Auto-Save, Battle Turbo, and Smooth Camera.","parameters":{"--- Auto Save ---":"","enableAutoSave":"true","autoSaveSlot":"1","--- Battle Turbo ---":"","enableTurbo":"true","turboSpeed":"2.5","--- Smooth Camera ---":"","enableSmoothCam":"true","camSpeed":"0.15"}},
 {"name":"Jules_SoloHero","status":true,"description":"Mechanics designed for Single-Actor games: Stat Boosts, Guts, and Kill Sustain.","parameters":{"condition":"alive","--- Stats ---":"","atkBoost":"20","defBoost":"60","spdBoost":"10","--- Survival ---":"","enableGuts":"true","gutsAnimation":"4","--- Sustain ---":"","killHealHp":"15","killHealMp":"5"}},
 {"name":"WASDMovement","status":true,"description":"Enables WASD keys for player movement and menu navigation.","parameters":{"disableArrows":"false"}},
-{"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}},
-{"name":"SimpleMapHUD","status":true,"description":"(Bottom-Center) HUD ขนาดเล็ก อยู่ด้านล่างตรงกลาง และซ่อนเมื่อต่อสู้","parameters":{"visibleSwitch":"0","width":"200","height":"50","opacity":"0","paddingBottom":"10"}}
+{"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}}
 ];
