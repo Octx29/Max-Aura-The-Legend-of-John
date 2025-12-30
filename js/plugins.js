@@ -5,5 +5,11 @@ var $plugins =
 {"name":"MaxAura_System","status":true,"description":"ระบบจัดการ Max Aura: Shield Durability","parameters":{}},
 {"name":"ShowAuraStatus","status":true,"description":"แสดงค่า Aura (Variable 1) ในหน้า Status","parameters":{}},
 {"name":"NpcNames","status":true,"description":"แสดงชื่อ NPC บนหัวตัวละครโดยอ่านจาก Note tag","parameters":{}},
-{"name":"EnemyHPGauge","status":true,"description":"แสดงหลอด HP สีแดงเหนือหัวศัตรูในฉากต่อสู้","parameters":{}}
+{"name":"EnemyHPGauge","status":true,"description":"แสดงหลอด HP สีแดงเหนือหัวศัตรูในฉากต่อสู้","parameters":{}},
+{"name":"GALV_LayerGraphicsMZ","status":false,"description":"Layer Graphics plugin","parameters":{}},
+{"name":"Jules_AchievementSystem","status":true,"description":"Adds a robust Achievement System with visual popups and a dedicated menu scene.","parameters":{}},
+{"name":"Jules_ChainCombos","status":true,"description":"Adds a Combo/Chain system to battles. High chains increase damage!","parameters":{}},
+{"name":"Jules_PlayerComfort","status":true,"description":"Improves player experience with Auto-Save, Battle Turbo, and Smooth Camera.","parameters":{}},
+{"name":"Jules_SoloHero","status":true,"description":"Mechanics designed for Single-Actor games: Stat Boosts, Guts, and Kill Sustain.","parameters":{}},
+{"name":"Jules_JohnStartSkill","status":true,"description":"Gives a specific skill to John (or any actor) when a New Game starts.","parameters":{}}
 ];
