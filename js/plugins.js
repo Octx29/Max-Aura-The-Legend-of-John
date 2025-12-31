@@ -5,5 +5,7 @@ var $plugins =
 {"name":"NpcNames","status":true,"description":"แสดงชื่อ NPC บนหัวตัวละครโดยอ่านจาก Note tag","parameters":{}},
 {"name":"EnemyHPGauge","status":true,"description":"แสดงหลอด HP สีแดงเหนือหัวศัตรูในฉากต่อสู้","parameters":{}},
 {"name":"WASDMovement","status":true,"description":"Enables WASD keys for player movement and menu navigation.","parameters":{"disableArrows":"false"}},
-{"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}}
+{"name":"MobileControls","status":true,"description":"Adds on-screen touch controls (D-Pad and Buttons) for mobile devices.","parameters":{"showOnPC":"true","opacity":"150","padScale":"1.0"}},
+{"name":"JustGuard","status":true,"description":"[v9.0 Extreme] Just Guard: สุ่มความเร็ว 0.01วิ - 1วิ (ยากระดับนรก)","parameters":{"--- Game Settings ---\r\n*":"","StunStateId":"13","MinDuration":"1","MaxDuration":"30","--- Visual Button ---":"","PromptX":"640","PromptY":"300","--- Audio & FX ---":"","ParrySound":"Sword2\r\n*","FailSound":"Buzzer1"}},
+{"name":"SurvivalInstinct","status":true,"description":"[v1.0] ระบบ Guts (รอดตาย) และ Life Steal (ฟื้นเลือดเมื่อฆ่า)","parameters":{"--- Guts Settings ---":"","EnableGuts":"true","GutsSound":"Powerup","--- Life Steal Settings ---":"","EnableLifeSteal":"true","HealPercent":"10","HealSound":"Heal3"}}
 ];

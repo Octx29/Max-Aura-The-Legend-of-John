@@ -1,7 +1,7 @@
 [
 null,
 {"id":1,"expanded":true,"name":"Castle","order":1,"parentId":0,"scrollX":825.3333333333334,"scrollY":454},
-{"id":2,"expanded":true,"name":"KnightCamp","order":2,"parentId":0,"scrollX":1238,"scrollY":696,"quick":false},
+{"id":2,"expanded":true,"name":"KnightCamp","order":2,"parentId":0,"scrollX":825.3333333333334,"scrollY":454,"quick":false},
 {"id":3,"expanded":true,"name":"Wilderness","order":3,"parentId":0,"scrollX":1238,"scrollY":697,"quick":false},
 {"id":4,"expanded":true,"name":"Nomad Camp","order":4,"parentId":0,"scrollX":749.8181818181819,"scrollY":696.3636363636364,"quick":false},
 {"id":5,"expanded":true,"name":"Normal Town","order":6,"parentId":0,"scrollX":836,"scrollY":960.6666666666666,"quick":false},
