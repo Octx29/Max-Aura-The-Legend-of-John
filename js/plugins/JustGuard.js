@@ -110,23 +110,34 @@
         }
 
         createBitmap() {
-            const size = 200;
+            const size = 220;
             this.bitmap = new Bitmap(size, size);
             const ctx = this.bitmap.context;
-            
-            const radius = 90; 
             const center = size / 2;
+            const radius = 90;
 
-            ctx.lineWidth = 6;
-            ctx.strokeStyle = '#ffffff';
+            // Enable glow effect in canvas 2d context
+            ctx.shadowColor = "rgba(165, 180, 252, 0.85)";
+            ctx.shadowBlur = 8;
             
-            // Draw Dashed Line
+            // Draw main dashed arc
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = '#e0e7ff';
             ctx.beginPath();
             ctx.arc(center, center, radius, 0, 1.5 * Math.PI);
             ctx.stroke();
-            
+
             ctx.beginPath();
-            ctx.arc(center, center, radius, 1.7 * Math.PI, 1.9 * Math.PI);
+            ctx.arc(center, center, radius, 1.65 * Math.PI, 1.9 * Math.PI);
+            ctx.stroke();
+            
+            // Draw a subtle inner target ring in gold to make it clear where the target is
+            ctx.shadowColor = "rgba(253, 224, 71, 0.6)";
+            ctx.shadowBlur = 6;
+            ctx.lineWidth = 2.5;
+            ctx.strokeStyle = '#fde047';
+            ctx.beginPath();
+            ctx.arc(center, center, 32, 0, 2 * Math.PI);
             ctx.stroke();
         }
 
@@ -167,6 +178,13 @@
             this._ring = new Sprite_JustGuardRing();
             this.addChild(this._ring);
             
+            // Parry Floating Text Sprite
+            this._parryText = new Sprite();
+            this._parryText.anchor.set(0.5, 0.5);
+            this._parryText.y = -70;
+            this._parryText.visible = false;
+            this.addChild(this._parryText);
+
             this._feedbackTime = 0;
         }
 
@@ -180,24 +198,48 @@
             // BG
             ctx.beginPath();
             ctx.arc(center, center, radius, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.6)'; 
+            ctx.fillStyle = 'rgba(15, 10, 36, 0.75)'; 
             ctx.fill();
             
             // Border
             ctx.lineWidth = 4;
-            ctx.strokeStyle = '#ffffff';
+            ctx.strokeStyle = '#a5b4fc';
             ctx.stroke();
 
             // Text F
             this.bitmap.fontSize = 32;
-            this.bitmap.fontFace = "rmmz-mainfont, sans-serif";
+            this.bitmap.fontFace = "Outfit, sans-serif";
+            this.bitmap.fontBold = true;
             this.bitmap.textColor = "#ffffff";
             this.bitmap.drawText("F", 0, 0, size, size, "center");
+        }
+
+        createParryTextBitmap() {
+            const bitmap = new Bitmap(180, 48);
+            bitmap.fontSize = 28;
+            bitmap.fontFace = "Cinzel, serif";
+            bitmap.fontBold = true;
+            bitmap.textColor = "#fbbf24"; // Amber gold
+            bitmap.outlineColor = "rgba(0, 0, 0, 0.85)";
+            bitmap.outlineWidth = 6;
+            bitmap.drawText("PARRY!", 0, 0, 180, 48, "center");
+            this._parryText.bitmap = bitmap;
         }
 
         update() {
             super.update();
             this.updateState();
+            this.updateParryTextAnimation();
+        }
+
+        updateParryTextAnimation() {
+            if (this._parryText.visible) {
+                this._parryText.y -= 1.2;
+                this._parryText.opacity -= 6;
+                if (this._parryText.opacity <= 0) {
+                    this._parryText.visible = false;
+                }
+            }
         }
 
         updateState() {
@@ -226,7 +268,9 @@
                 
                 this._ring.updateRing(progress, 'white');
             } else {
-                this.visible = false;
+                if (!this._parryText.visible) {
+                    this.visible = false;
+                }
             }
         }
 
@@ -237,6 +281,7 @@
             this._ring.visible = true;
             this._ring.rotation = Math.random() * Math.PI; 
             this._ring.setBlendColor([0,0,0,0]);
+            this._parryText.visible = false;
             this._feedbackTime = 0;
         }
 
@@ -246,8 +291,13 @@
             
             if (color === 'green') {
                 this.scale.set(1.3, 1.3);
+                this._parryText.y = -70;
+                this._parryText.opacity = 255;
+                this._parryText.visible = true;
+                this.createParryTextBitmap();
             } else {
                 this.scale.set(0.9, 0.9);
+                this._parryText.visible = false;
             }
             this._feedbackTime = 30; 
         }

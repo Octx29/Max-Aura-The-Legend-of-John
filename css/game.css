@@ -1,15 +1,216 @@
-body {
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Outfit', sans-serif;
+    background: radial-gradient(circle, #0f092b 0%, #030209 100%);
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
+
+#game-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar {
+    width: 280px;
+    height: calc(100vh - 60px);
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 10, 36, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(165, 180, 252, 0.1);
+    border-radius: 16px;
+    color: #e2e8f0;
+    z-index: 10;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#left-sidebar {
+    margin-left: 24px;
+}
+
+#right-sidebar {
+    margin-right: 24px;
+}
+
+.sidebar:hover {
+    border-color: rgba(165, 180, 252, 0.25);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+}
+
+.game-title {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #a5b4fc;
+    text-shadow: 0 0 12px rgba(165, 180, 252, 0.4);
+    margin: 0 0 4px 0;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.game-subtitle {
+    font-size: 12px;
+    color: #818cf8;
+    margin: 0 0 16px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(165, 180, 252, 0.3), transparent);
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.lore-section h3 {
+    font-size: 13px;
+    color: #818cf8;
+    text-transform: uppercase;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.lore-section p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    text-align: justify;
+    font-weight: 300;
+    margin: 0;
+}
+
+.lore-section.footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+.version {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.guide-item-group {
+    margin-bottom: 16px;
+}
+
+.guide-item-group h4 {
+    font-size: 10px;
+    color: #818cf8;
+    text-transform: uppercase;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.guide-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.keys-container {
+    display: flex;
+    gap: 4px;
+}
+
+.key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    width: 22px;
+    height: 22px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.key.wide {
+    width: auto;
+    padding: 0 8px;
+}
+
+.action-desc {
+    font-size: 11.5px;
+    color: #94a3b8;
+    width: 65%;
+    line-height: 1.4;
+    text-align: right;
+}
+
+.deck-tip {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: #c7d2fe;
+    background: rgba(99, 102, 241, 0.12);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+#vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 35%, rgba(0, 0, 0, 0.75) 100%);
+    z-index: 2;
+}
+
+#gameCanvas {
+    box-shadow: 0 0 50px rgba(99, 102, 241, 0.25), 0 0 100px rgba(99, 102, 241, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(165, 180, 252, 0.2);
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+#gameCanvas:hover {
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.35), 0 0 120px rgba(99, 102, 241, 0.15);
+    border-color: rgba(165, 180, 252, 0.35);
+}
+
+/* Fallback/Responsive - Hide sidebars on smaller screens so the game is visible */
+@media (max-width: 1450px) {
+    .sidebar {
+        display: none !important;
+    }
+}
+
+/* RPG Maker default error/loading spinner styles */
 #errorPrinter {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 640px;
-    height: 100px;
     transform: translate(-50%, -50%);
     text-align: center;
     text-shadow: 1px 1px 3px #000;
@@ -20,16 +221,10 @@ body {
 #errorName {
     color: #ff0;
     font-weight: bold;
-    -moz-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
     user-select: text;
 }
 #errorMessage {
     color: #fff;
-    -moz-user-select: text;
-    -webkit-user-select: text;
-    -ms-user-select: text;
     user-select: text;
 }
 #retryButton {
@@ -96,21 +291,11 @@ body {
     animation: fadein 2s ease, spin 1.5s linear infinite;
 }
 @keyframes fadein {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    20% { opacity: 0; }
+    100% { opacity: 1; }
 }
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

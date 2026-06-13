@@ -7,10 +7,74 @@
         <meta name="viewport" content="user-scalable=no">
         <link rel="icon" href="icon/icon.png" type="image/png">
         <link rel="apple-touch-icon" href="icon/icon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/game.css">
         <title>Max Aura : The Legend of John</title>
     </head>
     <body style="background-color: black">
+        <div id="game-wrapper">
+            <div id="left-sidebar" class="sidebar">
+                <h1 class="game-title">MAX AURA</h1>
+                <h2 class="game-subtitle">The Legend of John</h2>
+                <div class="divider"></div>
+                <div class="lore-section">
+                    <h3>THE ODYSSEY</h3>
+                    <p>John, a dedicated knight of Unit 7, was cast out of the guard camp after being cruelly rejected by Lady Alena. Now, he must build his inner strength, compile a powerful deck of combat skills, master the art of parrying, and seek his absolute revenge!</p>
+                </div>
+                <div class="lore-section footer">
+                    <span class="version">v2.3 Premium Edition</span>
+                </div>
+            </div>
+            
+            <div id="right-sidebar" class="sidebar">
+                <h3>GAME GUIDE</h3>
+                <div class="divider"></div>
+                <div class="guide-item-group">
+                    <h4>MOVEMENT</h4>
+                    <div class="guide-row">
+                        <span class="keys-container">
+                            <span class="key">W</span><span class="key">A</span><span class="key">S</span><span class="key">D</span>
+                        </span>
+                        <span class="action-desc">Walk / Navigate</span>
+                    </div>
+                </div>
+                <div class="guide-item-group">
+                    <h4>CONFIRM / SELECT</h4>
+                    <div class="guide-row">
+                        <span class="keys-container">
+                            <span class="key wide">Enter</span>
+                        </span>
+                        <span class="action-desc">Interact</span>
+                    </div>
+                </div>
+                <div class="guide-item-group">
+                    <h4>PERFECT PARRY</h4>
+                    <div class="guide-row">
+                        <span class="keys-container">
+                            <span class="key">F</span>
+                        </span>
+                        <span class="action-desc">Just Guard (Stuns Enemy, 0 Damage!)</span>
+                    </div>
+                </div>
+                <div class="guide-item-group">
+                    <h4>DISCARD CARD</h4>
+                    <div class="guide-row">
+                        <span class="keys-container">
+                            <span class="key">C</span>
+                        </span>
+                        <span class="action-desc">Discard Skill in Battle</span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="deck-tip">
+                    <strong>Tactical Tip:</strong> Maintain your combat deck size between 5 and 30 skills to avoid deck exhaustion.
+                </div>
+            </div>
+            
+            <div id="vignette"></div>
+        </div>
         <script type="text/javascript" src="js/main.js"></script>
     </body>
 </html>

@@ -800,12 +800,49 @@
             rect.x += 4; rect.y += 4; rect.width -= 8; rect.height -= 8;
             this.changePaintOpacity(item.enabled);
 
-            this.contents.strokeRect(rect.x, rect.y, rect.width, rect.height, ColorManager.normalColor());
+            const isSelected = (index === this.index() && this.active);
+
+            // Card borders and backgrounds
+            let borderColor = "rgba(165, 180, 252, 0.4)"; // Default indigo
+            let backColor = "rgba(15, 10, 36, 0.65)"; // Dark slate
+
+            if (isSelected) {
+                borderColor = "#fbbf24"; // Gold glow for selected card
+                backColor = "rgba(30, 27, 75, 0.85)";
+            } else if (symbol === 'skip') {
+                borderColor = "rgba(239, 68, 68, 0.35)"; // Red
+                backColor = "rgba(69, 10, 10, 0.5)";
+            } else if (symbol === 'draw') {
+                borderColor = "rgba(34, 197, 94, 0.35)"; // Green
+                backColor = "rgba(6, 78, 59, 0.5)";
+            }
+
+            const ctx = this.contents.context;
+            ctx.save();
             
-            if (symbol === 'skip') {
-                this.contents.fillRect(rect.x, rect.y, rect.width, rect.height, "rgba(50, 0, 0, 0.6)");
-            } else {
-                this.contents.fillRect(rect.x, rect.y, rect.width, rect.height, ColorManager.itemBackColor1());
+            // Selected shadow glow
+            if (isSelected) {
+                ctx.shadowColor = "rgba(251, 191, 36, 0.7)";
+                ctx.shadowBlur = 10;
+            }
+
+            // Fill card
+            ctx.fillStyle = backColor;
+            ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+
+            // Draw primary border
+            ctx.lineWidth = isSelected ? 2.5 : 1.5;
+            ctx.strokeStyle = borderColor;
+            ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+            ctx.restore();
+
+            // Inner border detail for cards
+            if (symbol === 'card') {
+                ctx.save();
+                ctx.strokeStyle = isSelected ? "rgba(251, 191, 36, 0.25)" : "rgba(165, 180, 252, 0.15)";
+                ctx.lineWidth = 1;
+                ctx.strokeRect(rect.x + 3, rect.y + 3, rect.width - 6, rect.height - 6);
+                ctx.restore();
             }
 
             if (symbol === 'card') {
@@ -817,58 +854,62 @@
                 this.drawIcon(skill.iconIndex, iconX, iconY);
 
                 if (isExhaust) {
-                     this.contents.fontSize = 14;
+                     this.contents.fontSize = 12;
                      this.changeTextColor(ColorManager.deathColor());
-                     this.drawText("EXH", rect.x + 2, rect.y + 2, rect.width, 'left');
+                     this.drawText("EXH", rect.x + 4, rect.y + 4, rect.width, 'left');
                 }
 
                 this.resetTextColor();
-                this.contents.fontSize = 18;
+                this.contents.fontFace = "Outfit, sans-serif";
+                this.contents.fontSize = 16;
                 this.drawText(skill.name, rect.x, rect.y + 42, rect.width, 'center');
 
                 const mpCost = this._actor.skillMpCost(skill);
                 const tpCost = this._actor.skillTpCost(skill);
                 let costText = "";
-                if (mpCost > 0) costText += mpCost + "MP";
-                if (tpCost > 0) costText += (costText ? " " : "") + tpCost + "TP";
+                if (mpCost > 0) costText += mpCost + " MP";
+                if (tpCost > 0) costText += (costText ? " " : "") + tpCost + " TP";
 
-                this.changeTextColor(ColorManager.systemColor());
-                this.contents.fontSize = 16;
+                this.changeTextColor(mpCost > 0 ? "#38bdf8" : "#4ade80"); // sky-blue for MP, light green for TP
+                this.contents.fontSize = 14;
                 this.drawText(costText, rect.x, rect.y + 68, rect.width, 'center');
 
             } else if (symbol === 'draw') {
-                this.changeTextColor(ColorManager.crisisColor());
-                this.contents.fontSize = 20;
-                this.drawText("DRAW", rect.x, rect.y + 10, rect.width, 'center');
+                this.changeTextColor("#4ade80");
+                this.contents.fontFace = "Outfit, sans-serif";
+                this.contents.fontSize = 18;
+                this.drawText("DRAW", rect.x, rect.y + 12, rect.width, 'center');
                 
                 this.resetTextColor();
-                this.contents.fontSize = 18;
-                this.drawText(item.name, rect.x, rect.y + 40, rect.width, 'center');
+                this.contents.fontSize = 15;
+                this.drawText(item.name, rect.x, rect.y + 42, rect.width, 'center');
 
                 let costText = "";
-                if (drawMpCost > 0) costText += drawMpCost + "MP";
-                if (drawTpCost > 0) costText += (costText ? " " : "") + drawTpCost + "TP";
+                if (drawMpCost > 0) costText += drawMpCost + " MP";
+                if (drawTpCost > 0) costText += (costText ? " " : "") + drawTpCost + " TP";
                 
-                this.changeTextColor(ColorManager.systemColor());
-                this.contents.fontSize = 16;
+                this.changeTextColor("#38bdf8");
+                this.contents.fontSize = 13;
                 this.drawText(costText, rect.x, rect.y + 68, rect.width, 'center');
 
             } else if (symbol === 'skip') {
-                this.changeTextColor(ColorManager.deathColor());
-                this.contents.fontSize = 20;
-                this.drawText("END", rect.x, rect.y + 10, rect.width, 'center');
+                this.changeTextColor("#f87171");
+                this.contents.fontFace = "Outfit, sans-serif";
+                this.contents.fontSize = 18;
+                this.drawText("END", rect.x, rect.y + 12, rect.width, 'center');
                 
                 this.changeTextColor(ColorManager.normalColor());
-                this.contents.fontSize = 18;
-                this.drawText(item.name, rect.x, rect.y + 40, rect.width, 'center');
+                this.contents.fontSize = 15;
+                this.drawText(item.name, rect.x, rect.y + 42, rect.width, 'center');
 
-                this.contents.fontSize = 30;
-                this.drawText("»", rect.x, rect.y + 60, rect.width, 'center');
+                this.contents.fontSize = 24;
+                this.drawText("»", rect.x, rect.y + 62, rect.width, 'center');
             }
 
             this.resetFontSettings();
             this.changePaintOpacity(1);
         }
+
 
         itemHeight() {
             return this.innerHeight;

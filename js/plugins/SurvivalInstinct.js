@@ -155,23 +155,23 @@
         
         if (healAmount > 0) {
             // เพิ่มเลือด
-            // ใช้ true ใน gainHp เพื่อให้แสดง popup สีเขียว
             actor.gainHp(healAmount);
             
             // Visuals
             actor.startDamagePopup(); // แสดงตัวเลขเด้ง
             
-            // ถ้าอยากให้แสดง Animation ฮีล
-            // $gameTemp.requestAnimation([actor], 46); // 46 = Heal One
+            // เล่นอนิเมชันฮีลสีเขียว
+            $gameTemp.requestAnimation([actor], 46); // 46 = Heal One animation
             
             // เล่นเสียง
             AudioManager.playSe({ name: config.lsSe, volume: 80, pitch: 120, pan: 0 });
             
-            // Log (Optional - อาจจะรกถ้าฆ่าบ่อย ปิดไว้ก่อน หรือเปิดถ้าชอบ)
-            // if (SceneManager._scene._logWindow) {
-            //    SceneManager._scene._logWindow.addText(`\\C[24]Life Steal!\\C[0] ${actor.name()} ฟื้นฟู ${healAmount} HP`);
-            // }
+            // แสดงข้อมูลใน log การต่อสู้
+            if (SceneManager._scene._logWindow) {
+                SceneManager._scene._logWindow.addText(`\\C[24]LIFE STEAL!\\C[0] ${actor.name()} recovered \\C[24]+${healAmount} HP\\C[0] from victory!`);
+            }
         }
     };
+
 
 })();
